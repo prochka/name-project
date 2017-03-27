@@ -1,0 +1,2 @@
+<?php
+ class DelPhrases{ private $id_phrases; public function __construct($id_phrases) { $this->id_phrases = intval($id_phrases); require 'mysql.php'; } public function del(){ $sql = "DELETE FROM ok_phrases WHERE id_phrases = {$this->id_phrases}"; $mysql = Mysql::getInstance(); $mysql->exec($sql); } } session_start(); if(isset($_SESSION['who']) AND $_SESSION['who'] == "operator"){ if(!empty($_POST['id_phrases'])){ $phrases = new DelPhrases($_POST['id_phrases']); $phrases->del(); } }else{ die('Error! Нету прав!'); } ?>

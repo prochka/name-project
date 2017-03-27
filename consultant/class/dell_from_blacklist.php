@@ -1,0 +1,2 @@
+<?php
+ class DellFromBlacklist { public $user_ip; public function __construct() { if(!empty($_POST['user_ip'])){ $this->user_ip = $_POST['user_ip']; $this->dell(); } } public function dell() { require 'mysql.php'; $mysql = Mysql::getInstance(); $this->user_ip = $mysql->quote($this->user_ip); $sql = "DELETE FROM ok_blacklist WHERE ip_user = {$this->user_ip}"; $mysql->exec($sql); exit; } } session_start(); if(isset($_SESSION['who']) AND $_SESSION['who'] == "admin"){ $add = new DellFromBlacklist(); }else{ die('У вас нету прав'); } ?>

@@ -1,0 +1,2 @@
+<?php
+ header("Content-type: text/html; charset=UTF-8"); session_start(); if(isset($_SESSION['who'])){ if($_SESSION['who'] == "operator"){ header('Location: operator.php'); exit; } if($_SESSION['who'] == "admin"){ header('Location: admin.php'); exit; } }else{ require_once 'view/login_form.php'; } ?>
