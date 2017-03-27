@@ -1,0 +1,1 @@
+Оригинал здесь: http://scriptsmaster.ru/scripts/other/13-skript-onlayn-konsultanta.html
